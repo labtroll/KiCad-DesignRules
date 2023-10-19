@@ -75,6 +75,7 @@
 )
 
 (rule "Hole (NPTH) diameter"
+	(layer outer)
 	(condition "!A.isPlated()")
 	(constraint hole_size (min 0.5mm))
 )
