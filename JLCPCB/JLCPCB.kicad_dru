@@ -79,6 +79,13 @@
 	(constraint annular_width (min 0.25mm))
 )
 
+# An expensive 4-Wire Kelvin Test is automatically added for holes that are < 0.3mm with a diameter ≤ 0.4mm.
+(rule "Avoid 4-Wire Kelvin Test"
+	(condition "(A.Type == 'Via' && A.Hole < 0.3mm && A.Diameter <= 0.4mm) || (A.Type == 'Pad' && ((A.Hole_Size_X < 0.3mm && A.Size_X <= 0.4mm) || (A.Hole_Size_Y < 0.3mm && A.Size_Y <= 0.4mm)))")
+  # 4-6 Layers
+  (constraint annular_width (min 0.125mm))
+)
+
 
 # --- Minimum Clearance ---
 
